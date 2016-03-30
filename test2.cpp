@@ -74,3 +74,78 @@ int main(){
 		cout<<str[idx]<<endl;
 	}
 }*/
+
+//vector元素尽管连续存储，位于“堆”，数组类型是c++内置类型，位于“栈”，堆和栈的区别？
+//虽然可以对给定元素个数的vector对象预先分配内存，但是更有效的方法是先初始化一个空的vector对象，然后动态的增加元素
+
+//vector初始化!
+/*#include <iostream>
+#include <string>
+#include <vector>//vector不是数据类型，是一个类模板，可以生成多个数据类型，vector也是在std内的
+using namespace std;
+int main(){
+	vector<int> ivec1;//vector<int>是数据类型，ivec1就是一个装有int型变量的容器，默认初始化含0个int元素
+	vector<int> ivec2(ivec1);//ivec2是ivec1的副本
+	vector<int> ivec3(10,-1);//ivec3中有10个int元素，每个元素值为-1
+	vector<int> ivec4(10);//ivec4中有10个元素，每个元素值初始化为0，int值默认初始化为0
+	vector<string> svec1;//vector<string>是数据类型，svec1就是一个装有string类变量的容器，默认初始化含0个元素
+	vector<string> svec2(svec1);//svec2是svec1的副本
+	vector<string> svec3(10,"Hi");//svec3中含有10个string，每个都是Hi
+	vector<string> svec4(10);//svec4中含10个string,每个string都默认初始化为空字符串——string类的默认构造函数
+}*/
+
+//vector对象的操作！
+//size() 容器内元素的个数，返回值是vector<...>::size_type
+/*#include <iostream>
+#include <vector>
+using namespace std;
+int main(){
+	vector<int> ivec(5,5);
+	vector<int>::size_type len=ivec.size();
+	cout<<len<<endl;
+}*/
+//向vector中添加元素！！
+/*#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+int main(){
+	vector<string> text;//首先定义一个空的vector对象
+	string word;
+	vector<string>::size_type i;	
+	cin>>word;
+	while(word!="END"){
+		text.push_back(word);
+		cin>>word;
+	}
+	for(i=0;i<text.size();i++){
+		cout<<text[i]<<' ';
+	}
+	cout<<endl;
+}*/
+//下标操作不添加新元素,用push_back()添加新元素
+//error:
+/*#include <iostream>
+#include <vector>
+using namespace std;
+int main(){
+	vector<int> ivec;
+	vector<int>::size_type idx;
+	for(idx=0;idx!=10;idx++){
+		ivec[idx]=idx;
+	}
+}*/
+//correct
+/*#include <iostream>
+#include <vector>
+using namespace std;
+int main(){
+	vector<int> svec;
+	vector<int>::size_type idx;
+	for(idx=0;idx!=10;idx++){
+		svec.push_back(idx);
+	}
+	for(idx=0;idx!=svec.size();idx++)
+		cout<<svec[idx];
+	cout<<endl;
+}*/
