@@ -149,3 +149,73 @@ int main(){
 		cout<<svec[idx];
 	cout<<endl;
 }*/
+
+//iterator
+//每种标准库容器类型都定义了自己的迭代器类型，它是一种检查容器内元素并遍历元素的数据类型
+/*#include <iostream>
+#include <vector>
+using namespace std;
+int main(){
+	vector<int> ivec;
+	vector<int>::size_type idx;
+	for(idx=0;idx!=10;idx++){
+		ivec.push_back(idx);
+	}
+	//iterBegin和iterEnd本质上都是指针
+	vector<int>::iterator iterBegin=ivec.begin();//迭代器指向容器里第一个元素,ivec[0]
+	vector<int>::iterator iterEnd=ivec.end();//迭代器指向容器里最后一个元素的下一个（实际不存在）
+	//如果容器为空，ivec.begin()和ivec.end()返回的迭代器相同
+}*/
+//使用iterator来遍历每一个容器内的元素
+/*#include <iostream>
+#include <vector>
+using namespace std;
+int main(){
+	vector<int> ivec;
+	vector<int>::size_type idx;
+	vector<int>::iterator iter;
+	for(idx=0;idx!=10;idx++){
+		ivec.push_back(idx);
+	}
+	for(iter=ivec.begin();iter!=ivec.end();iter++){
+		*iter=0;
+	}
+	for(iter=ivec.begin();iter!=ivec.end();iter++){
+		cout<<*iter<<endl;
+	}
+}*/
+//vector<...>::const_iterator 指针可以改变指向，但是指向的元素的值不可以改变，只读不能写
+/*#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+int main(){
+	vector<string> svec;
+	vector<string>::const_iterator citer;
+	svec.push_back("Hello");
+	svec.push_back("World");
+	svec.push_back("Hello");
+	svec.push_back("World");
+	svec.push_back("Hello");
+	svec.push_back("World");
+	for(citer=svec.begin();citer!=svec.end();citer++){
+		cout<<*citer<<endl;
+		//*citer="Hi";error citer是const类型迭代器，只能读不能写
+	}
+}*/
+//const vector<...>::iteraror 指针不能改变指向，但是指针指向的元素的值可以改变
+/*#include <iostream>
+#include <vector>
+using namespace std;
+int main(){
+	const vector<int> num(10,5);
+	//const vector<int>::iterator cit1=num.begin(); error cit1有可能改变num[0]的值，而num里的元素是不允许被改变值的
+	vector<int>::const_iterator cit2=num.begin();//correct
+	cit2++;//correct
+	//*cit2=1; error
+}*/
+//迭代器的算数操作
+//iter+n/iter-n，n要是size_type类型的
+//iter1-iter2，两个迭代器之间的距离，返回值是difference_type类型的，这是个signed类型
+//vector<int>::iterator iter=ivec.begin()+ivec.size()/2;//迭代器指向中间
+//                                                           ivec.size()就是vector<...>::size_type类型的，满足条件
