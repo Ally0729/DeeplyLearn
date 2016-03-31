@@ -219,3 +219,50 @@ int main(){
 //iter1-iter2，两个迭代器之间的距离，返回值是difference_type类型的，这是个signed类型
 //vector<int>::iterator iter=ivec.begin()+ivec.size()/2;//迭代器指向中间
 //                                                           ivec.size()就是vector<...>::size_type类型的，满足条件
+
+//bitset
+/*#include <iostream>
+#include <string>
+#include <bitset>//bitset也是一种类模板，与vector相似，但是bitset对象的区别仅仅在于长度，不在于类型
+using namespace std;
+int main(){
+	string str="0011011011011011";
+	bitset<32> bit1;//32 bits,all zero
+	//用unsigned long的值来初始化bitset，该值直接转化为二进制的位模式
+	bitset<32> bit2(0xFFFF);//0~15 bits are set to 1，while16~31 bits are set to 0
+	bitset<16> bit3(0xFFFF);//0~15 bits are set to 1
+	bitset<8> bits4(0xFFFF);//0~7 bits are set to 1,0xFFFF的高八位被丢弃
+	//用string初始化bitset，string对象直接表示成位模式
+	//从string对象读入二进制，从右向左读！！！这个差别要记住~~~
+	bitset<32> bits1("0011");//bits[0]=1,bits[1]=1,其余位全是0
+	bitset<32> bits2(str,5,4);//从str[5]开始的4位，初始化bits2，bits2[0]=1,bits2[1]=0,bits2[2]=1,bits2[3]=1,其余位均为0
+	bitset<32> bits3(str,str.size()-4);//从str[str.size()-4]开始直到str结束，bits2[0]=1,bits2[1]=1,bits2[2]=0,bits2[3]=1,其余位均为0
+}*/
+//bitset对象上的操作
+/*#include <iostream>
+#include <bitset>
+#include <string>
+#include <cstddef>
+using namespace std;
+int main(){
+	bitset<32> bits1("001101101");//用字符串初始化最好
+	bool isAllZero=bits1.none();
+	bool isNotAllZero=bits1.any();
+	size_t bitCount=bits1.count();//size_t在cstddef头文件中定义
+	size_t bitSize=bits1.size();
+	bool isOne=bits1.test(5);//test bits1[5]是不是1
+	bits1.set();//全部位置1
+	bits1.reset();//全部位置0
+	bits1.set(5);//bits1[5]置1
+	bits1.reset(5);//bits1[5]置0
+	bits1.flip();//全部反转
+	bits1.flip(5);//bits[5]反转
+}*/
+/*#include <iostream>
+#include <bitset>
+using namespace std;
+int main(){
+	bitset<32> bits(0xffff);//bits是32位的，用0xffff初始化后0~15位为1,16~31位为0
+	cout<<bits<<endl;//将bits输出，结果是00000000000000001111111111111111
+	                                                                //高位                        低位
+}*/
