@@ -2,7 +2,7 @@
 //而且数组和vector的区别在于，数组的大小一旦给定是不能改的，而vector可以动态的添加成员，一般也是vector建立成空对象，然后不断添加
 //只有当vector的速度不满足需求的时候才考虑数组
 //数组的初始化
-#include <iostream>
+/*#include <iostream>
 #include <string>
 #include <vector>
 using namespace std;
@@ -23,4 +23,6 @@ int main(){
 	//int b[3](a);//error 一个数组不能用另一个数组初始化
 	ivec2=ivec1;//一个容器可以被另一个容器赋值，ivec2中的元素是ivec1中的元素的副本
 	//b=a; error 一个数组不能被另一个数组赋值
-}
+}*/
+//数组的长度和数组下标的正确类型是size_t
+//a[n];n的类型是size_t
