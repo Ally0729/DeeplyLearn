@@ -49,3 +49,10 @@ int main(){
 //两个例外，其一指向常量的指针可以指向非常量对象
 //只不过不允许通过指针改变对象的值，可以通过其他方法改变
 //int *p=nullptr 空指针初始化
+//指向指针的引用！
+//int *p=nullptr;
+//int *&r=p;
+
+//const
+//const int ci=30;
+//int j=ci;   correct  把const对象赋值给非const对象，并不改变const对象的值，因此合法！
