@@ -53,6 +53,21 @@ int main(){
 //int *p=nullptr;
 //int *&r=p;
 
+//区分const double *p和double const *p
+//      const修饰double   const修饰*
+
 //const
 //const int ci=30;
 //int j=ci;   correct  把const对象赋值给非const对象，并不改变const对象的值，因此合法！
+
+//顶层const和底层const
+//在拷贝时，顶层const忽略，底层const限制，含有底层const的是常量，不含底层const的是非常量，非常量可以赋给常量，反之不可以
+
+//typedef
+//typedef int age;
+//int i=0;等价于age i=0;
+//typedef char* pchar;  pchar是char型指针
+//char* p=nullptr;等价于pchar p=nullptr;
+//BUT~!!!
+//const char* p='A';不等价于const pchar p='A';
+//const修饰char                  const修饰pchar，即修饰指针
