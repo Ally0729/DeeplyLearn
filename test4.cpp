@@ -34,8 +34,8 @@ int main(){
 //	int units_sold={0};
 //	int units_sold{0};
 //在一个文件中声明定义的变量如果其他文件也要引用，那么就将该变量作为全局变量，其声明写进头文件，其他文件只要包含这个头文件即可
-//const对象如果也要被其他文件引用，除了声明成全局变量外，必须用extern指明，如果const对象是用常量表达式初始化的
-//可以将其声明写入头文件，其他文件只要包含这个头文件即可，否则必须要在其他文件中写其声明
+//const对象如果也要被其他文件引用，除了声明成全局变量外，必须用extern指明
+//可以将其声明写入头文件，其他文件只要包含这个头文件即可
 
 //复合类型——引用
 //引用是对象的另外一个名字，声明引用后必须初始化，因为引用一旦和对象绑定，不允许再被和其他对象绑定，不允许给引用赋值
@@ -59,7 +59,7 @@ int main(){
 //const
 //const int ci=30;
 //int j=ci;   correct  把const对象赋值给非const对象，并不改变const对象的值，因此合法！
-
+//遇到const一定要区分是顶层const还是底层const
 //顶层const和底层const
 //在拷贝时，顶层const忽略，底层const限制，含有底层const的是常量，不含底层const的是非常量，非常量可以赋给常量，反之不可以
 
@@ -71,3 +71,6 @@ int main(){
 //BUT~!!!
 //const char* p='A';不等价于const pchar p='A';
 //const修饰char                  const修饰pchar，即修饰指针
+
+//vector<int> ivec;
+//vector<vector<int>> ivvec;
