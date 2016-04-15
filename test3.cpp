@@ -26,3 +26,18 @@ int main(){
 }*/
 //数组的长度和数组下标的正确类型是size_t
 //a[n];n的类型是size_t
+/*#include <iostream>
+using namespace std;
+int  main(){
+	int arr[10]={0,1,2};
+	int *p1=nullptr;
+	p1=arr;
+	int (*p2)[10]=&arr;//p2是p1的指针 指向数组指针的指针
+}*/
+/*#include <iostream>
+using namespace std;
+int main(){
+	int arr[10]={0,1,2};
+	int (&refa)[10]=arr;//refa是arr数组的引用
+	refa[0]=9;//refa[0]==arr[0]
+}*/

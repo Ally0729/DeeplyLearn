@@ -74,3 +74,41 @@ int main(){
 
 //vector<int> ivec;
 //vector<vector<int>> ivvec;
+
+//使用iterator进行二分搜索
+/*#include<iostream>
+#include <vector>
+using namespace std;
+int main(){
+	int number;
+	vector<int>::iterator iter1;
+	vector<int>::iterator iter2;
+	vector<int>::iterator iter3;
+	vector<int> ivec;
+	vector<int>::size_type n;
+	bool not_found=true;
+	for(n=0;n!=10;n++){
+		ivec.push_back(n*2);//0 2 4 6 8 10 12 14 16 18
+	}
+	cout<<"Input a number"<<endl;
+	cin>>number;
+	iter1=ivec.begin();
+	iter2=ivec.begin()+ivec.size()/2;
+	iter3=ivec.end();
+	//          没找到                 还有可寻找的空间
+	while((number!=*iter2)&&(iter2!=iter3)){
+		if(number<*iter2){
+			iter3=iter2;
+		}
+		else
+		{
+			iter1=iter2+1;
+		}
+		iter2=iter1+(iter3-iter1)/2;
+	}
+	if(number==*iter2)//找到了
+		cout<<iter2-ivec.begin()+1<<endl;//输出位置
+	else//没找到
+		cout<<"NOT FOUND"<<endl;
+}*/
+		
