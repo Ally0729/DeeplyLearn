@@ -32,7 +32,10 @@ int  main(){
 	int arr[10]={0,1,2};
 	int *p1=nullptr;
 	p1=arr;
-	int (*p2)[10]=&arr;//p2是p1的指针 指向数组指针的指针
+	int (*p2)[10]=&arr;
+	int **p3=&p1;
+	//注意p1/p2/p3的区别
+	*p2[0]=9;//*p2[0]==arr[0]
 }*/
 /*#include <iostream>
 using namespace std;
@@ -41,3 +44,25 @@ int main(){
 	int (&refa)[10]=arr;//refa是arr数组的引用
 	refa[0]=9;//refa[0]==arr[0]
 }*/
+
+//int *p=&ia[2];
+//int j=p[1];     //j=ia[3];(p指向ia[2]，p[0]就是ia[2])
+//int k=p[-2];   //k=ia[0];
+
+/*#include <iostream>
+typedef int int_array1[4];//int_array1是int[4]的别名，只是因为int[4]的写法不允许，才将int和[4]分开
+typedef int int_array2;//int_array2是int的别名
+using namespace std;
+int main(){
+	int_array2 i=0;
+	int a[4]={0,1,2,3};
+	int_array1 *p=&a;//等价于 int (*p)[4]=&a;   把数组a的地址给p，p才能指向整个数组a
+}*/
+
+//多维数组
+//int ia[3][4]={
+//					{0,1,2,3},
+//					{2,3,4,5},
+//					{3,4,5,6},
+//				};
+//int (&ref)[4]=ia[1];
