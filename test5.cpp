@@ -44,3 +44,15 @@
 //含有底层const，想把含有const的转换成不含底层const的，使用const_cast，其他情况都不能使用const_cast(都可以使用static_cast)进行强制类型转换
 //	const int *p=&i;
 //int* pi=const_cast<int*>(p);
+
+//第五章
+//switch语句：如果某个case匹配成功，则会一直执行下去，除非显示中断，所以我们不能忘记break
+//switch(ch){
+//		case 'a':
+//		case 'e':
+//		case 'i':
+//		case 'o':
+//     case 'u':
+//			   ++cnt;
+//             break;
+//}
