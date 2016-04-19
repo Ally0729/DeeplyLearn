@@ -56,3 +56,24 @@
 //			   ++cnt;
 //             break;
 //}
+
+//异常
+//throw runtime_error("can not divided by 0"); 
+//"can not divided by 0"用于初始化runtime_error对象
+//除了exception、bad_alloc和bad_cast对象不需要初始化（使用默认初始化）
+//其他异常类型都需要用字符串初始化(不能使用默认初始化)
+//异常类型只定义了一个what()成员函数，该函数没有参数，返回的是C风格的字符串，如果异常类型有一个字符串初始值，返回的就是该字符串
+//否则返回内容由编译器决定
+
+//assert(expr);
+//位于<cassert>中,当expr不满足时，在Debug下，会在控制台打印错误信息(expr)
+
+//try{
+//		program-statements
+//}catch(exception declaration){         eg:   catch (runtime_error err)        err.what()
+//		handle-exception
+//}catch(exception declaration){
+//		handle-exception
+//}catch(exception declaration){
+//		handle-exception
+//}
