@@ -36,3 +36,19 @@
 //}
 //index=find_char(s,'o',ctr);
 //不仅字符c第一次出现的位置ret被返回，occurs也作为引用形参，通过ctr，被保存了下来，ctr的值就是出现的次数
+
+//#include <iostream>
+//#include <string>//一定不要忘记了
+//#include <initializer_list>
+//using namespace std;
+//void err_msg(initializer_list<string> ls){
+//	for (auto beg=ls.begin();beg!=ls.end();beg++)
+//	{
+//		
+//		cout<< *beg <<endl;
+//	}
+//}
+//int main(){
+//	err_msg({"Hello","World"});
+//	err_msg({"Hello","my","world"});
+//}
