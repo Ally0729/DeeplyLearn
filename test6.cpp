@@ -89,3 +89,56 @@
 //		const string&r=shorterString(const_cast<const string&>(s1),const_cast<const string&>(s2));
 //		return const_cast<string&>(r);
 //}
+
+//默认实参
+//string screen(int ht,int wid,char backgrnd);//一般声明
+//string screen(int ht=24,int wid=80,char backgrnd=' ');//带有默认实参的声明
+//可以为一个或多个形参提供默认实参，但是一旦某个形参被赋予了默认实参，它后面所有的形参都必须有默认值
+//调用含有默认实参的函数：
+//screen();
+//screen(66);
+//screen(66,256);
+//screen(66,256,'#');
+//screen(,,'?');//error
+//screen('?');//error
+//默认实参的声明——可以分步进行默认实参的赋值
+//string screen(int ht,int wid,char backgrnd=' ');
+//string screen(int ht,int wid,char backgrnd='*');//error，一旦确定默认实参就不能再改
+//string screen(int ht=24,int wid=80,char backgrnd);//correct 因为backgrnd已经有了默认实参
+
+//NDEBUG
+//assert的行为依赖于一个叫NDEBUG的预处理变量，如果没有定义NDEBUG，assert才会进行运行时的检查，如果定义了，assert什么也不做
+//#define NDEBUG
+//默认情况不定义NDEBUG
+//assert(word.size()<threshold)
+//或自己定义条件调试代码
+//if (word.size()>threshold)
+//{
+//	cerr<<"Error:"<<__FILE__<<":in function"<<__func__<<"at line"<<__LINE__<<endl<<"Compiled on"<<__DATE__<<"at"<<__TIME__<<endl
+//		<<"Word read as"<<word<<"length too short"<<endl;
+//}
+
+//编译器将实参类型到形参类型的转换分为几个等级
+//精确匹配
+//1.实参类型和形参类型完全相同
+//2.实参从数组类型或函数类型转成指针类型
+//3.是否含有顶层const
+//通过const转换实现的匹配——形参含有底层const实参不含
+//整型提升
+//算术类型转换
+//类类型转换
+//eg
+//void ff(int);
+//void ff(short);
+//ff('a');//调用ff(int)则是整型提升，调用ff(short)则是算术类型转换，因此优先调用ff(int);
+//所有算术类型转换的优先级相同，int转换成float和int转换成long的优先级相同
+//指向函数的指针
+//函数类型由其返回值类型和参数类型共同决定
+//函数bool lengthCompare(const string &s1,const string &s2);的类型是bool (const string &,const string &);
+//定义指向函数的指针
+//typedef bool func (const string&,const string &);
+//func *p=&lengthCompare;//'&'可有可无
+//以下三个等价
+//p(s1,s2);
+//(*p)(s1,s2);
+//lengthCompare(s1,s2);
