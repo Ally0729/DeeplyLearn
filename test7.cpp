@@ -44,3 +44,5 @@ std::ostream& print(std::ostream& cout,const Sales_data& a){//不使用形参改变实参
 		<<a.avg_price();
 	return cout;//返回输出流的对象
 }
+
+//一个类的成员可以是指向该类的指针或是该类的引用

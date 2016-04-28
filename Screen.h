@@ -53,3 +53,43 @@ temp.set('#');//temp设置了，而myScreen并没有被设置
 
 //一个const对象的成员不允许被修改，但是const对象的mutable成员允许被修改
 //mutable size_t access;
+
+//友元再探
+//友元知识多了一句声明，别的都不变，这些类或函数该怎么声明定义就怎么声明定义
+//友元的声明不是真正的声明
+//class Screen{
+//	//Window_mgr的成员函数可以访问Screen的private成员了
+//	friend class Window_mgr;//Window_mge是Screen的友元类
+//	//Screen的剩余部分
+//};
+//友元函数不具有传递性，如果Window_mgr有自己的友元函数，那么该友元函数也不是Screen的友元函数
+
+//class Screen{
+//	//Window_mgr::clear必须要在Screen类之前被声明
+//	friend void Window_mgr::clear(ScreenIdx);//把一个类的一个成员函数声明有友元，必须要指明这个类
+//	//Screen的剩余部分
+//};
+//注意顺序
+//先定义Window_mgr类，声明clear函数
+//定义Screen类，包括对clear声明友元
+//定义clear函数
+
+//struct X{
+//	friend void f(){};//友元函数可以定义在类内（隐式内联）
+//	X(){
+//		f();//error  f()还没有声明
+//	}
+//	void g();
+//	void h();
+//};
+//void X::g(){
+//	return f();//error f()还没有声明
+//}
+//void f();//真正的声明
+//void X::h(){
+//	return f();//correct
+//}
+
+//两种方法
+//(1)在X中定义友元函数f(),f()是隐式内联，再在同一个头文件中，类的作用域外声明f();
+//(2)在X中声明友元函数f(),再在同一个头文件中，类的作用域外声明f(),在相应.cpp文件中定义f();
